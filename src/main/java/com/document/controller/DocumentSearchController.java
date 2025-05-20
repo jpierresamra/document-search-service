@@ -23,15 +23,15 @@ public class DocumentSearchController {
     }
    
     @GetMapping
-    public ResponseEntity<Iterable<Document>> getTreatmentsByCustomer(@RequestParam(required = false) String filter) throws Exception {
+    public ResponseEntity<Iterable<Document>> getDocuments(@RequestParam(required = false) String filter) throws Exception {
 		Iterable<Document> responseBody = documentService.getDocuments(filter);
 		return ResponseEntity.ok(responseBody);
     }
 
     @PostMapping
     public @ResponseBody ResponseEntity<?> addDocument(@RequestBody Document paramDoc) throws Exception {
-        Document responseTreatment = documentService.addDocument(paramDoc);
-        return ResponseEntity.ok(responseTreatment);
+        Document responseDocument = documentService.addDocument(paramDoc);
+        return ResponseEntity.ok(responseDocument);
     }
 
 }
